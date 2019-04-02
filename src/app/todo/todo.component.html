@@ -1,0 +1,19 @@
+<div id="main-form">
+  <div id="form-input">
+    <input type="text" 
+      (keyup.enter) = "addTask(task)" #task 
+      class="form-control text-input"
+      placeholder="Enter a task"
+      autofocus>
+    <button (click)="addTask(task)">+</button>
+  </div>
+  <p class="clear-button" (click)="deleteAllTask()">Clear All</p>
+</div>
+<div class="main">
+  <ul class="list">
+    <li *ngFor="let task of tasksList$ | async">
+      <span> {{task.value}}</span>
+      <button (click)="deleteTask(task)" class="remove">x</button>
+    </li>
+  </ul>
+</div>
